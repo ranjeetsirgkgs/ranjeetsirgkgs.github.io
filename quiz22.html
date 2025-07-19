@@ -1,0 +1,328 @@
+﻿<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURRENT AFFAIRS 2025 credit goes to utkarsh classes</title>
+    <style>
+        body {
+            font-family: 'elephant', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+            box-sizing: border-box;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        .question-box {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .question-box h3 {
+            margin-top: 0;
+            color: #555;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: #444;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background-color 0.2s ease;
+        }
+        .options label:hover {
+            background-color: #e9e9e9;
+        }
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .results p {
+            font-size: 1.2em;
+            color: #333;
+        }
+        .results .score {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #28a745;
+        }
+        .feedback {
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        .correct {
+            color: #28a745; /* Green */
+        }
+        .incorrect {
+            color: #dc3545; /* Red */
+        }
+        .correct-answer-text {
+            color: #007bff; /* Blue */
+            font-style: italic;
+            margin-top: 5px;
+            font-size: 0.9em;
+        }
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e2f0f7; /* dark green background for explanation */
+            border-left: 5px solid #007bff;
+            font-size: 1.5em;
+            color: #333;
+            border-radius: 10px;
+        }
+        .retry-btn {
+            background-color: #6c757d;
+            margin-left: 10px;
+        }
+        .retry-btn:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>सामान्य ज्ञान क्विज़</h1>
+        <form id="quizForm">
+            </form>
+        <button type="button" class="submit-btn" id="submitQuiz">सबमिट करें</button>
+        <div id="results" class="results" style="display: none;">
+            <h2>आपके परिणाम</h2>
+            <p>आपका स्कोर: <span class="score" id="score"></span> / <span id="totalQuestions"></span></p>
+            <button type="button" class="submit-btn retry-btn" id="retryQuiz">फिर से प्रयास करें</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "किस राज्य के उच्च न्यायालय ने 2 अक्टूबर से राज्य में प्लास्टिक पर प्रतिबंध लगाने का आदेश दिया है?",
+                options: ["तमिलनाडु", "कर्नाटक", "केरल", "आंध्र प्रदेश"],
+                answer: "केरल",
+                explanation: "केरल उच्च न्यायालय ने पर्यावरण संरक्षण के लिए 2 अक्टूबर से राज्य में सिंगल-यूज प्लास्टिक पर पूर्ण प्रतिबंध लगाने का आदेश दिया था। यह फैसला प्लास्टिक प्रदूषण को कम करने के प्रयासों का हिस्सा था।"
+            },
+            {
+                question: "क्यूएस (QS) रैंकिंग 2026 में किसे भारतीय संस्थानों में शीर्ष स्थान मिला है?",
+                options: ["आईआईटी बॉम्बे", "आईआईएससी बैंगलोर", "आईआईटी दिल्ली", "आईआईटी मद्रास"],
+                answer: "आईआईटी दिल्ली",
+                explanation: "क्यूएस (Quacquarelli Symonds) रैंकिंग में भारतीय संस्थानों में आईआईटी दिल्ली को शीर्ष स्थान मिला है। यह रैंकिंग शैक्षणिक प्रतिष्ठा, नियोक्ता प्रतिष्ठा और अनुसंधान प्रभाव जैसे विभिन्न मापदंडों पर आधारित होती है।"
+            },
+            {
+                question: "रिलायंस इंफ्रा और डसॉल्ट एविएशन भारत में फाल्कन 2000 जेट का निर्माण कहाँ प्रारंभ करेंगे?",
+                options: ["बेंगलुरु", "हैदराबाद", "महाराष्ट्र", "मुंबई"],
+                answer: "महाराष्ट्र",
+                explanation: "रिलायंस इंफ्रा और डसॉल्ट एविएशन ने फाल्कन 2000 बिजनेस जेट के निर्माण के लिए महाराष्ट्र के नागपुर में अपनी संयुक्त उद्यम इकाई स्थापित की है। यह 'मेक इन इंडिया' पहल के तहत रक्षा विनिर्माण को बढ़ावा देगा।"
+            },
+            {
+                question: "शिक्षा मंत्रालय की वर्ष 2023-24 प्रदर्शन ग्रेड इंडेक्स 2.0 रिपोर्ट में सबसे अच्छा प्रदर्शन करने वाला राज्य/केंद्र शासित प्रदेश कौनसा है?",
+                options: ["पंजाब", "दिल्ली", "चंडीगढ़", "गुजरात"],
+                answer: "चंडीगढ़",
+                explanation: "शिक्षा मंत्रालय की प्रदर्शन ग्रेड इंडेक्स (PGI) 2.0 रिपोर्ट में चंडीगढ़ ने सबसे अच्छा प्रदर्शन किया है। यह रिपोर्ट राज्यों और केंद्र शासित प्रदेशों में स्कूली शिक्षा प्रणाली के प्रदर्शन का मूल्यांकन करती है।"
+            },
+            {
+                question: "पहली बार कार्यस्थल पर जैविक खतरों से सुरक्षा संबंधी कन्वेंशन (C 192) किसने अपनाया है?",
+                options: ["विश्व स्वास्थ्य संगठन (WHO)", "संयुक्त राष्ट्र पर्यावरण कार्यक्रम (UNEP)", "अंतर्राष्ट्रीय श्रम संगठन (ILO)", "विश्व बैंक (World Bank)"],
+                answer: "अंतर्राष्ट्रीय श्रम संगठन (ILO)",
+                explanation: "अंतर्राष्ट्रीय श्रम संगठन (ILO) ने कार्यस्थल पर जैविक खतरों से सुरक्षा संबंधी कन्वेंशन C192 को अपनाया है। इसका उद्देश्य कर्मचारियों को जैविक एजेंटों से होने वाले जोखिमों से बचाना और सुरक्षित कार्य वातावरण सुनिश्चित करना है।"
+            },
+            {
+                question: "पद्मश्री पुरस्कार विजेता 'अरण्य ऋषि' नाम से प्रसिद्ध मारुति चित्तमपल्ली का निधन हुआ है?",
+                options: ["कर्नाटक", "महाराष्ट्र", "केरल", "तमिलनाडु"],
+                answer: "महाराष्ट्र",
+                explanation: "पद्मश्री से सम्मानित 'अरण्य ऋषि' के नाम से मशहूर मारुति चित्तमपल्ली एक प्रसिद्ध वन्यजीव विशेषज्ञ और लेखक थे। उनका निधन महाराष्ट्र में हुआ था, जहाँ उन्होंने अपना अधिकांश जीवन वन्यजीव संरक्षण के लिए समर्पित किया।"
+            },
+            {
+                question: "अंग्रेजी भाषा में किसे साहित्य अकादमी युवा पुरस्कार के लिए चुना गया है?",
+                options: ["चेतन भगत", "दुर्जोय दत्ता", "सिद्धार्थ", "अरुंधति रॉय"],
+                answer: "सिद्धार्थ",
+                explanation: "सिद्धार्थ को उनकी अंग्रेजी भाषा की कृति के लिए साहित्य अकादमी युवा पुरस्कार से सम्मानित किया गया है। यह पुरस्कार युवा भारतीय लेखकों को प्रोत्साहित करने और उनकी साहित्यिक प्रतिभा को मान्यता देने के लिए दिया जाता है।"
+            },
+            {
+                question: "केंद्र सरकार फास्टैग (FASTag) की नई योजना के तहत कितने रुपये का फास्टैग-आधारित वार्षिक पास जारी करेगी?",
+                options: ["1500 रुपये", "2000 रुपये", "2500 रुपये", "3000 रुपये"],
+                answer: "3000 रुपये",
+                explanation: "केंद्र सरकार ने फास्टैग-आधारित टोल भुगतान को बढ़ावा देने और यात्रियों को सुविधा प्रदान करने के लिए 3000 रुपये का वार्षिक पास जारी करने की योजना बनाई है। यह पास राष्ट्रीय राजमार्गों पर असीमित यात्रा की अनुमति देगा।"
+            },
+            {
+                question: "ग्लोबल लिवेबिलिटी इंडेक्स (Global Liveability Index) में शीर्ष स्थान किस देश को मिला है?",
+                options: ["वियना", "कोपेनहेगन", "ज्यूरिख", "वैंकूवर"],
+                answer: "कोपेनहेगन",
+                explanation: "ग्लोबल लिवेबिलिटी इंडेक्स 2024 में कोपेनहेगन को शीर्ष स्थान मिला है। यह इंडेक्स स्थिरता, स्वास्थ्य सेवा, संस्कृति, पर्यावरण, शिक्षा और बुनियादी ढांचे जैसे कारकों के आधार पर शहरों की रहने योग्य क्षमता का मूल्यांकन करता है।"
+            },
+            {
+                question: "पुनः प्रयोज्य रॉकेट का सफल परीक्षण करने वाली गैर-अमेरिकी और गैर-चीनी कंपनी कौन-सी है?",
+                options: ["स्पेसएक्स (SpaceX)", "ब्लू ओरिजिन (Blue Origin)", "एस्ट्रा (Astra)", "होंडा (Honda)"],
+                answer: "होंडा (Honda)",
+                explanation: "होंडा (Honda) पुनः प्रयोज्य रॉकेट का सफल परीक्षण करने वाली पहली गैर-अमेरिकी और गैर-चीनी कंपनी बनी है। यह उपलब्धि अंतरिक्ष अन्वेषण और लागत प्रभावी अंतरिक्ष यात्रा के लिए महत्वपूर्ण है।"
+            },
+            {
+                question: "केंद्र सरकार ने सिकल सेल रोग की दवा विकसित करने के लिए किसके नाम पर 10 करोड़ रुपये का पुरस्कार प्रारंभ करने की घोषणा की है?",
+                options: ["महात्मा गांधी", "भगत सिंह", "बिरसा मुंडा", "सुभाष चंद्र बोस"],
+                answer: "बिरसा मुंडा",
+                explanation: "केंद्र सरकार ने सिकल सेल रोग के इलाज के लिए दवा विकसित करने हेतु बिरसा मुंडा के नाम पर 10 करोड़ रुपये का पुरस्कार शुरू करने की घोषणा की है। यह पहल जनजातीय समुदायों में इस बीमारी के उन्मूलन पर केंद्रित है।"
+            },
+            {
+                question: "बिहार से पहली बार रेल डीजल इंजन किस देश को निर्यात किया गया है?",
+                options: ["नेपाल", "बांग्लादेश", "श्रीलंका", "गिनी"],
+                answer: "गिनी",
+                explanation: "बिहार के मुजफ्फरपुर से पहली बार रेल डीजल इंजन अफ्रीकी देश गिनी को निर्यात किया गया है। यह भारत की 'मेक इन इंडिया' और 'आत्मनिर्भर भारत' पहल के तहत विनिर्माण क्षमताओं को दर्शाता है।"
+            },
+            {
+                question: "प्रतिभा सेतु पोर्टल किसने लॉन्च किया है?",
+                options: ["यूपीएससी (UPSC)", "एसएससी (SSC)", "यूयूपीएसएससीआई (UUPSCSi)", "नीति आयोग (NITI Aayog)"],
+                answer: "यूयूपीएसएससीआई (UUPSCSi)",
+                explanation: "UUPSCSi (उत्तर प्रदेश प्राविधिक शिक्षा परिषद और कौशल विकास संस्थान) ने प्रतिभा सेतु पोर्टल लॉन्च किया है। यह पोर्टल छात्रों और उद्योगों के बीच कौशल-आधारित कनेक्शन को बढ़ावा देने के लिए है।"
+            },
+            {
+                question: "एससी/एसटी (SC/ST) छात्रों को डिजिटल और उच्च शिक्षा कौशल से सशक्त बनाने के लिए 'जयिहाज योजना' किसने शुरू की है?",
+                options: ["जवाहरलाल नेहरू विश्वविद्यालय", "दिल्ली विश्वविद्यालय", "बनारस हिंदू विश्वविद्यालय", "अलीगढ़ मुस्लिम विश्वविद्यालय"],
+                answer: "दिल्ली विश्वविद्यालय",
+                explanation: "दिल्ली विश्वविद्यालय ने एससी/एसटी (SC/ST) छात्रों को डिजिटल और उच्च शिक्षा कौशल से सशक्त बनाने के लिए 'जयिहाज योजना' शुरू की है। इस योजना का उद्देश्य इन छात्रों को मुख्यधारा में लाना और उनके भविष्य को सुरक्षित करना है।"
+            },
+            {
+                question: "पहली बार अफ्रीकी देश में अंतर्राष्ट्रीय धार्मिक स्वतंत्रता शीर्ष सम्मेलन, 2025 आयोजित हुआ है?",
+                options: ["नाइजीरिया", "दक्षिण अफ्रीका", "केन्या", "मिस्र"],
+                answer: "केन्या",
+                explanation: "पहली बार अंतर्राष्ट्रीय धार्मिक स्वतंत्रता शीर्ष सम्मेलन 2025 केन्या में आयोजित हुआ है। यह सम्मेलन धार्मिक स्वतंत्रता को बढ़ावा देने और विश्व भर में धार्मिक उत्पीड़न को संबोधित करने के लिए महत्वपूर्ण है।"
+            }
+        ];
+
+        const quizForm = document.getElementById('quizForm');
+        const submitBtn = document.getElementById('submitQuiz');
+        const resultsDiv = document.getElementById('results');
+        const scoreSpan = document.getElementById('score');
+        const totalQuestionsSpan = document.getElementById('totalQuestions');
+        const retryBtn = document.getElementById('retryQuiz');
+
+        function loadQuiz() {
+            quizForm.innerHTML = ''; // Clear previous questions
+            questions.forEach((q, index) => {
+                const questionBox = document.createElement('div');
+                questionBox.classList.add('question-box');
+                questionBox.innerHTML = `
+                    <h3>${index + 1}. ${q.question}</h3>
+                    <div class="options" id="question-${index}">
+                        ${q.options.map((option, optIndex) => `
+                            <label>
+                                <input type="radio" name="question${index}" value="${option}">
+                                ${option}
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="feedback" id="feedback-${index}"></div>
+                    <div class="explanation" id="explanation-${index}" style="display:none;"></div>
+                `;
+                quizForm.appendChild(questionBox);
+            });
+            resultsDiv.style.display = 'none'; // Hide results on load
+            submitBtn.style.display = 'block'; // Show submit button
+        }
+
+        function checkQuiz() {
+            let score = 0;
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                const feedbackDiv = document.getElementById(`feedback-${index}`);
+                const explanationDiv = document.getElementById(`explanation-${index}`);
+
+                feedbackDiv.innerHTML = ''; // Clear previous feedback
+                explanationDiv.innerHTML = ''; // Clear previous explanation
+                explanationDiv.style.display = 'block'; // Show explanation
+
+                if (selectedOption) {
+                    if (selectedOption.value === q.answer) {
+                        score++;
+                        feedbackDiv.classList.remove('incorrect');
+                        feedbackDiv.classList.add('correct');
+                        feedbackDiv.textContent = 'सही जवाब!';
+                    } else {
+                        feedbackDiv.classList.remove('correct');
+                        feedbackDiv.classList.add('incorrect');
+                        feedbackDiv.innerHTML = `गलत जवाब! <span class="correct-answer-text">सही उत्तर: ${q.answer}</span>`;
+                    }
+                } else {
+                    feedbackDiv.classList.remove('correct', 'incorrect');
+                    feedbackDiv.innerHTML = `<span class="incorrect">आपने कोई जवाब नहीं चुना। <span class="correct-answer-text">सही उत्तर: ${q.answer}</span></span>`;
+                }
+
+                // Display the explanation
+                explanationDiv.innerHTML = `<p><strong>व्याख्या:</strong> ${q.explanation}</p>`;
+            });
+
+            scoreSpan.textContent = score;
+            totalQuestionsSpan.textContent = questions.length;
+            resultsDiv.style.display = 'block'; // Show results
+            submitBtn.style.display = 'none'; // Hide submit button
+        }
+
+        function resetQuiz() {
+            loadQuiz();
+            // Clear all radio button selections and hide explanations
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.checked = false;
+            });
+            document.querySelectorAll('.feedback').forEach(feedback => {
+                feedback.innerHTML = '';
+            });
+            document.querySelectorAll('.explanation').forEach(explanation => {
+                explanation.innerHTML = '';
+                explanation.style.display = 'none'; // Hide explanations again
+            });
+        }
+
+        submitBtn.addEventListener('click', checkQuiz);
+        retryBtn.addEventListener('click', resetQuiz);
+
+        // Initial load of the quiz
+        loadQuiz();
+    </script>
+</body>
+</html>
